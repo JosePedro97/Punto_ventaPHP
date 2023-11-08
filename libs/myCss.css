@@ -1,0 +1,36 @@
+/*BARRAS DE NAVEGACION*/
+    .navJustify{
+        display: flex; 
+        justify-content: flex-end;
+        background-color: #708090;
+        border-bottom: black;
+    }
+    .textColorForNav{
+        color:azure;
+    }
+    .MenuTextHover:hover{
+        color: azure;
+        background-color: #708090;
+    }
+    .heightForRowPrincipal{
+        height: 100vh;
+    }
+    .heightForsideNavbar{
+        height: 100%;
+    }
+
+/* BOTONES */
+.btn-info{
+    background-color: #6495ED;
+    color: azure;
+    border: 0px;
+}
+
+.btn-warning{
+    background-color: #8B0000;
+    color: azure;
+}
+.card-header{
+    display: flex; 
+    justify-content: space-between;
+}
