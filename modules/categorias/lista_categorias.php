@@ -6,7 +6,8 @@
 
     # incluir funciones de esta seccion
     include_once('funciones_categorias.php');
-?>
+    ?>
+        
 <!-- CONTENIDO DE LA PAGINA -->
     <div class="container">
         <!-- titulo -->
@@ -43,8 +44,8 @@
                         
                         <!-- BOTONES DE ACCIONES -->
                         <td scope="row">
-                            <a  class="btn btn-info" href="editar.php?IdE=<?php echo $data['cat_id'] ?>" role="button"><i class="bi bi-pencil-fill"></i> Editar</a>
-                            <a  class="btn btn-danger" href="javascript:borrar_categorias(<?php echo $data['cat_id'] ?>);" role="button"><i class="bi bi-x"></i> Borrar</a>
+                            <a  class="btn btn-info" href="formulario_categorias.php?IdE=<?php echo $data['cat_id']; ?>" role="button"><i class="bi bi-pencil-fill"></i> Editar</a>
+                            <a  class="btn btn-danger" href="javascript:borrar(<?php echo $data['cat_id']; ?>,'categorias');" role="button"><i class="bi bi-x"></i> Borrar</a>
                         </td>
 
                     </tr>

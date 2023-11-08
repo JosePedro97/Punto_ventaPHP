@@ -24,8 +24,13 @@
     <script src="<?php echo $url_base?>libs/sweetalert2@11.js"></script>
 
     <!-- custom script -->
-
     <script src="<?php echo $url_base?>libs/myScripts.js"></script>
+
+    <!-- lanzador de mensajes -->
+    <?php if($_GET) { 
+        if(isset($_GET['ms'])) {?>
+        <script>mensajes(<?php  echo $_GET['ms'];  ?>);</script>
+    <?php } } ?>
 
     </body>
     </html>

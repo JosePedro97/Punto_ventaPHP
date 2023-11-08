@@ -1,60 +1,85 @@
-function cargarReloj(){
-    // Haciendo uso del objeto Date() obtenemos la hora, minuto y segundo 
-    var fechahora = new Date();
-    var hora = fechahora.getHours(); 
-    var minuto = fechahora.getMinutes(); 
-    var segundo = fechahora.getSeconds(); 
-    // Variable meridiano con el valor 'AM' 
-    var meridiano = "AM";
-    // Si la hora es igual a 0, declaramos la hora con el valor 12 
-    if(hora == 0){
-        hora = 12;
-    }
-    // Si la hora es mayor a 12, restamos la hora - 12 y mostramos la variable meridiano con el valor 'PM' 
-    if(hora > 12) {
-        hora = hora - 12;
-        // Variable meridiano con el valor 'PM' 
-        meridiano = "PM";
-    }
-    // Formateamos los ceros '0' del reloj 
-    hora = (hora < 10) ? "0" + hora : hora;
-    minuto = (minuto < 10) ? "0" + minuto : minuto;
-    segundo = (segundo < 10) ? "0" + segundo : segundo;
-    
-    // obtenemos el dia de hoy para mostrar junto al reloj
-    var hoy = new Date(fechahora);
-    var Fecha = hoy.toLocaleDateString('es-MX', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
+//relog y fecha
+    function cargarReloj(){
+        // Haciendo uso del objeto Date() obtenemos la hora, minuto y segundo 
+        var fechahora = new Date();
+        var hora = fechahora.getHours(); 
+        var minuto = fechahora.getMinutes(); 
+        var segundo = fechahora.getSeconds(); 
+        // Variable meridiano con el valor 'AM' 
+        var meridiano = "AM";
+        // Si la hora es igual a 0, declaramos la hora con el valor 12 
+        if(hora == 0){
+            hora = 12;
+        }
+        // Si la hora es mayor a 12, restamos la hora - 12 y mostramos la variable meridiano con el valor 'PM' 
+        if(hora > 12) {
+            hora = hora - 12;
+            // Variable meridiano con el valor 'PM' 
+            meridiano = "PM";
+        }
+        // Formateamos los ceros '0' del reloj 
+        hora = (hora < 10) ? "0" + hora : hora;
+        minuto = (minuto < 10) ? "0" + minuto : minuto;
+        segundo = (segundo < 10) ? "0" + segundo : segundo;
+        
+        // obtenemos el dia de hoy para mostrar junto al reloj
+        var hoy = new Date(fechahora);
+        var Fecha = hoy.toLocaleDateString('es-MX', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
 
-    // Enviamos la hora a la vista HTML 
-    var tiempo = Fecha + ", "+ hora + ":" + minuto + ":" + segundo + " " + meridiano;    
-    document.getElementById("relojnumerico").innerText = tiempo;
-    document.getElementById("relojnumerico").textContent = tiempo;
+        // Enviamos la hora a la vista HTML 
+        var tiempo = Fecha + ", "+ hora + ":" + minuto + ":" + segundo + " " + meridiano;    
+        document.getElementById("relojnumerico").innerText = tiempo;
+        document.getElementById("relojnumerico").textContent = tiempo;
 
-    // Cargamos el reloj a los 500 milisegundos 
-    setTimeout(cargarReloj, 500);
-}
+        // Cargamos el reloj a los 500 milisegundos 
+        setTimeout(cargarReloj, 500);
+    }
 
 // Ejecutamos la función 'CargarReloj' 
-cargarReloj();
+    cargarReloj();
+
+//mensajes
+    function mensajes(key){
+        switch (key) {
+            case 1:
+                Swal.fire({title: "Registro Agregado",icon: "success"});
+            break;
+            case 2:
+                Swal.fire({title: "Registro Editado",icon: "success"});
+            break;
+            case 3:
+                Swal.fire({title: "Registro Borrado",icon: "success"});
+            break;
+            case 4:
+                Swal.fire({title: "Bien hecho, la venta ha sido registrada correctamente",icon: "success"});
+            break;
+            case 5:
+                Swal.fire({title: "Complete todos los campos del formulario",icon: "warning"});
+            break;
+            case 6:
+            Swal.fire({title: "ha ocurrido un error al procesar la petición",icon: "danger"});
+            break;
+           
+        }
+    }
 
 // Cancelar normal
-function Cancelar(module){
-    Swal.fire({
-        icon: "question",
-        title: "¿Desea Cancelar la operación?",
-        showDenyButton: true,
-        confirmButtonText: "Si",
-        denyButtonText: "No"
-      }).then((result) => {
-        if (result.isConfirmed) {
-            window.location = "../categorias/lista_"+module+".php";
-        }
-      });
-}
+    function cancelar(module){
+        Swal.fire({
+            icon: "question",
+            title: "¿Desea Cancelar la operación?",
+            showDenyButton: true,
+            confirmButtonText: "Si",
+            denyButtonText: "No"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = "../categorias/lista_"+module+".php";
+            }
+        });
+    }
 
-/** FUNCIONES PARA CATEGORIAS */
 // Borrar
-    function borrar_categorias(idDelete){
+    function borrar(idDelete,module){
         Swal.fire({
             icon: "question",
             title: "¿Desea borrar el registro?",
@@ -65,16 +90,15 @@ function Cancelar(module){
             if (result.isConfirmed) {
                 $.ajax({
                     type: "GET",
-                    url: "../categorias/funciones_categorias.php?IdB="+idDelete,
+                    url: "../"+module+"/funciones_"+module+".php?IdB="+idDelete,
                     async : false,
                     processData: false,
                     contentType: false,
+                    beforeSend: function () {
+                        Swal.fire({text:"Procesando, espere por favor..",icon:"info"});
+                    },
                     success: function (respuesta){
-                        Swal.fire({
-                            text: 'Registro Borrado',
-                            icon: 'success'
-                            });
-                        window.location = "../categorias/lista_categorias.php";
+                        window.location = "../"+module+"/lista_"+module+".php?ms="+respuesta;
                     }
              }) 
             }
@@ -82,35 +106,21 @@ function Cancelar(module){
     }
 
 //Agregar
-function GuardarCategoria(){
-    Swal.fire({
-        icon: "question",
-        title: "¿Desea Guardar el registro?",
-        showDenyButton: true,
-        confirmButtonText: "Si",
-        denyButtonText: "No"
-      }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type: "POST",
-                url: "../categorias/funciones_categorias.php",
-                data: $('#formSubmit').serialize(),
-                async : false,
-                processData: false,
-                contentType: false,
-                success: function (respuesta){
-                    Swal.fire({
-                        text: 'Registro Agregado',
-                        icon: 'success'
-                        });
-                    window.location = "../categorias/lista_categorias.php";
-                }
-         }) 
-        }
-      });
-}
+    function PreguntaClick(accion){
+        Swal.fire({
+            icon: "question",
+            title: "¿Desea "+accion+" el registro?",
+            showDenyButton: true,
+            confirmButtonText: "Si",
+            denyButtonText: "No"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.forms['formSubmit'].submit();
+            }
+        });
+    }
 
-// Ejecutar dataTable y darle formato en español
+// Ejecutar dataTable y formato en español
 new DataTable('#myinfotable', {
     language: {
         "processing": "Procesando...",
