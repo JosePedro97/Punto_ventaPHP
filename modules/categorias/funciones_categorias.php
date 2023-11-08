@@ -18,7 +18,7 @@
             $SentenciaAgregarcategoria->bindParam(":nombrecategoria",$_POST['nombrecategoria'],PDO::PARAM_STR);
             $SentenciaAgregarcategoria->execute();
             if(!$SentenciaAgregarcategoria){
-                header("location:lista_categorias.php?ms=error");
+                header("location:lista_categorias.php?ms=6");
             }else{
                 header("location:lista_categorias.php?ms=1");
             }

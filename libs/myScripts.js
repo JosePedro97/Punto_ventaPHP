@@ -73,7 +73,7 @@
             denyButtonText: "No"
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = "../categorias/lista_"+module+".php";
+                window.location = "../"+module+"/lista_"+module+".php";
             }
         });
     }

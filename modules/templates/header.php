@@ -48,7 +48,7 @@
                     <a class="nav-link textColorForNav MenuTextHover" href="#"><i class="bi bi-box"></i> Articulos</a>
                 </li>
                 <li class="nav-item MenuTextHover">
-                    <a class="nav-link textColorForNav MenuTextHover" href="#"><i class="bi bi-tag"></i> Marca</a>
+                    <a class="nav-link textColorForNav MenuTextHover" href="<?php echo $url_base ?>modules/marcas/lista_marcas.php"><i class="bi bi-tag"></i> Marcas</a>
                 </li>
                 <li class="nav-item MenuTextHover">
                     <a class="nav-link textColorForNav MenuTextHover" href="<?php echo $url_base ?>modules/categorias/lista_categorias.php"><i class="bi bi-columns-gap"></i> Categorias</a>
