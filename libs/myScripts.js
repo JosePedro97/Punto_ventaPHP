@@ -1,42 +1,61 @@
 //relog y fecha
     function cargarReloj(){
-        // Haciendo uso del objeto Date() obtenemos la hora, minuto y segundo 
-        var fechahora = new Date();
-        var hora = fechahora.getHours(); 
-        var minuto = fechahora.getMinutes(); 
-        var segundo = fechahora.getSeconds(); 
-        // Variable meridiano con el valor 'AM' 
-        var meridiano = "AM";
-        // Si la hora es igual a 0, declaramos la hora con el valor 12 
+        fechahora = new Date();
+        hora = fechahora.getHours(); 
+        minuto = fechahora.getMinutes(); 
+        segundo = fechahora.getSeconds(); 
+        meridiano = "AM";
+
         if(hora == 0){
             hora = 12;
         }
-        // Si la hora es mayor a 12, restamos la hora - 12 y mostramos la variable meridiano con el valor 'PM' 
         if(hora > 12) {
             hora = hora - 12;
-            // Variable meridiano con el valor 'PM' 
             meridiano = "PM";
         }
-        // Formateamos los ceros '0' del reloj 
         hora = (hora < 10) ? "0" + hora : hora;
         minuto = (minuto < 10) ? "0" + minuto : minuto;
         segundo = (segundo < 10) ? "0" + segundo : segundo;
         
-        // obtenemos el dia de hoy para mostrar junto al reloj
-        var hoy = new Date(fechahora);
-        var Fecha = hoy.toLocaleDateString('es-MX', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
+        hoy = new Date(fechahora);
+        Fecha = hoy.toLocaleDateString('es-MX', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
 
-        // Enviamos la hora a la vista HTML 
-        var tiempo = Fecha + ", "+ hora + ":" + minuto + ":" + segundo + " " + meridiano;    
+        tiempo = Fecha + ", "+ hora + ":" + minuto + ":" + segundo + " " + meridiano;    
         document.getElementById("relojnumerico").innerText = tiempo;
         document.getElementById("relojnumerico").textContent = tiempo;
 
-        // Cargamos el reloj a los 500 milisegundos 
         setTimeout(cargarReloj, 500);
     }
 
 // Ejecutamos la función 'CargarReloj' 
     cargarReloj();
+
+// VALIDAR SOLO NUMEROS
+    $(function(){
+        $(".validarNumeros").keydown(function(event){
+            //alert(event.keyCode);
+            if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !==190  && event.keyCode !==110 && event.keyCode !==8 && event.keyCode !==9  ){
+                Swal.fire({text: "Solo puede ingresar números en esta casilla",icon: "warning"});
+                return false;
+            }
+        });
+    });
+
+// regresar
+function funcion1 (mensaje){
+
+   console.log(mensaje);
+}
+
+// FORMATO DE MONEDA
+function FormatoMoneda(value) {
+    formatN = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      }).format(value);
+      
+      document.getElementById("MoneyFormat").innerText = formatN;
+}
 
 //mensajes
     function mensajes(key){

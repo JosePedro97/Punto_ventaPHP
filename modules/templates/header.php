@@ -45,7 +45,7 @@
                 <p class="mx-auto mb-0 mt-3 textColorForNav"> Articulos</p>
                 <hr class="m-0 textColorForNav">
                 <li class="nav-item MenuTextHover">
-                    <a class="nav-link textColorForNav MenuTextHover" href="#"><i class="bi bi-box"></i> Articulos</a>
+                    <a class="nav-link textColorForNav MenuTextHover" href="<?php echo $url_base ?>modules/articulos/lista_articulos.php"><i class="bi bi-box"></i> Articulos</a>
                 </li>
                 <li class="nav-item MenuTextHover">
                     <a class="nav-link textColorForNav MenuTextHover" href="<?php echo $url_base ?>modules/marcas/lista_marcas.php"><i class="bi bi-tag"></i> Marcas</a>
@@ -53,8 +53,12 @@
                 <li class="nav-item MenuTextHover">
                     <a class="nav-link textColorForNav MenuTextHover" href="<?php echo $url_base ?>modules/categorias/lista_categorias.php"><i class="bi bi-columns-gap"></i> Categorias</a>
                 </li>
-                <!-- opciones del usuario -->
+                <!-- OPCIONES PARA CLIENTE -->
+                <p class="mx-auto mb-0 mt-3 textColorForNav"> Clientes</p>
                 <hr class="m-0 textColorForNav">
+                <li class="nav-item MenuTextHover">
+                    <a class="nav-link textColorForNav MenuTextHover" href=""><i class="bi bi-people"></i> Clientes</a>
+                </li>
             </ul>
         </div>
         

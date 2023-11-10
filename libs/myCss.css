@@ -34,3 +34,9 @@
     display: flex; 
     justify-content: space-between;
 }
+
+/* formato de moneda */
+.formatMoney{
+    display: flex;
+    justify-content: baseline;
+}
