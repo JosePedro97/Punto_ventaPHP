@@ -5,10 +5,6 @@
     <!-- CONTENIDO DEL FOOTER -->
 </footer>
 
-<?php 
-    //establecer url base para redireccionar en el menu y no se sobre escriba al momento de dar clic
-?>
-
     <!-- Bootstrap JavaScript Libraries -->
     <script src="<?php echo $url_base?>libs/bootstrap/js/bootstrap.min.js"></script>
 
@@ -31,6 +27,11 @@
         if(isset($_GET['ms'])) {?>
         <script>mensajes(<?php  echo $_GET['ms'];  ?>);</script>
     <?php } } ?>
+    
+    <!-- lanzador del formato moneda -->
+    <?php if(isset($FormatoMoneda) && !empty($FormatoMoneda)){?> 
+        <script>FormatoMoneda(<?php echo $FormatoMoneda ?>);</script>
+    <?php } ?>
 
     </body>
     </html>

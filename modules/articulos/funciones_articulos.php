@@ -66,7 +66,14 @@
                 $SentenciaListarArticulo->bindParam(":art_id",$_GET['IdE'],PDO::PARAM_INT);
                 $SentenciaListarArticulo->execute();
                 $InformacionArticulo = $SentenciaListarArticulo->fetch(PDO::FETCH_LAZY);
+
+                // establecer variable para formato moneda
+                if(isset($InformacionArticulo) && !empty($InformacionArticulo)){
+                   $FormatoMoneda = $InformacionArticulo['art_precio'];
+                }
+
                 $accion = "editar";
+
             break;
         }
     }

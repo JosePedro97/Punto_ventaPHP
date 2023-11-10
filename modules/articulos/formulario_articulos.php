@@ -15,6 +15,11 @@
         $camposRecuperadosF = urldecode($_GET['camposRecuperados']);
         $camposRecuperadosF = base64_decode($camposRecuperadosF);
         $camposRecuperadosF = unserialize($camposRecuperadosF);
+
+        //establecer valor para que lo mande al formato moneda
+        if (isset($camposRecuperadosF['precioarticulo']) && !empty($camposRecuperadosF['precioarticulo'])){ 
+            $FormatoMoneda = $camposRecuperadosF['precioarticulo'];
+        }
     }
 ?>
     <div class="container">
@@ -160,13 +165,7 @@
                     </div>
                     <div class="col-4">
                         <p id="MoneyFormat">
-                            <?php if (isset($accion) && $accion == "editar"){ ?>
-                                <script>FormatoMoneda(<?php echo $InformacionArticulo['art_precio']; ?>)</script>
-                            <?php }else if(isset($camposRecuperadosF) && !empty($camposRecuperadosF['precioarticulo'])){ ?>
-                                <script>FormatoMoneda(<?php echo $camposRecuperadosF['precioarticulo']; ?>)</script>
-                            <?php }else{ ?>
-                                $0.00
-                            <?php } ?>
+                            $0.00 
                         </p>
                     </div>
                 </div>

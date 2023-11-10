@@ -9,7 +9,9 @@
     include_once('database/conexion.php');
 ?>
 <!-- CONTENIDO DE LA PAGINA -->
-    
+    <div class="container pb-3">
+        
+    </div>
 <?php
  #incluir footer
  include_once('modules/templates/footer.php');
