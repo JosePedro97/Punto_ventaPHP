@@ -31,7 +31,8 @@
             <ul id="navdiv2" class="nav bg-dark flex-column heightForsideNavbar">
                 <!-- brand name -->
                 <img src="<?php echo $url_base ?>resources/imgs/ico-store.png" alt="tienda-logo" width="20%" class="pt-2 mx-auto">
-                <p class="navbar-brand mx-auto textColorForNav" href="#">La Tiendita de la Esquina</p>
+                <a class="navbar-brand mx-auto textColorForNav" href="<?php echo $url_base ?>index.php">La Tiendita de la Esquina</a>
+        
                 <!-- OPCIONES PARA VENTAS -->
                 <p class="mx-auto mb-0 mt-3 textColorForNav">Ventas</p>
                 <hr class="m-0 textColorForNav">
