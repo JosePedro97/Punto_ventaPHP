@@ -1,12 +1,10 @@
 <!-- PAGINA DE INICIO -->
 <?php
-    $url_base = "http://localhost/punto_venta/";
-    
     # incluir header
     include_once('modules/templates/header.php');
 
-    # incluir base de datos
-    include_once('database/conexion.php');
+    # incluir contadores
+    include_once('modules/contadores.php');
 ?>
 <!-- CONTENIDO DE LA PAGINA -->
     <div class="container pb-3">
@@ -17,29 +15,74 @@
                 <!-- boton recargar -->
                 <a name="" id="" class="btn btn-secondary" href="index.php" role="button"><i class="bi bi-arrow-clockwise"></i> Recargar</a>
             </div>
+
             <div class="card-body row">
                 
-                <div class="card text-white bg-primary col-3 Contadorcard">
-                  <div class="card-body">
-                    <h4 class="card-title">Title</h4>
-                    <p class="card-text">Text</p>
+                <div class="card text-white CardContador col-3 mx-1" style="background-color: #5F9EA0;">
+                  <div class="card-body row">
+                    <div class="col-9">
+                      <h2 class="card-title">0</h2>
+                      <p class="card-text">Ventas realizadas</p>
+                    </div>
+                    <div class = "col-3">
+                      <h1><i class="bi bi-bag"></i></h1>
+                    </div>
                   </div>
                 </div>
 
-                <div class="card text-white bg-primary col-3 Contadorcard">
-                  <div class="card-body">
-                    <h4 class="card-title">Title</h4>
-                    <p class="card-text">Text</p>
+                <div class="card text-white CardContador col-3 mx-1" style="background-color:#6495ED;">
+                  <div class="card-body row">
+                    <div class="col-9">
+                      <h2 class="card-title"><?php ContarRegistros('cli'); ?></h2>
+                      <p class="card-text">Clientes registrados</p>
+                    </div>
+                    <div class = "col-3">
+                      <h1><i class="bi bi-people"></i></h1>
+                    </div>
                   </div>
                 </div>
 
-                <div class="card text-white bg-primary col-3 Contadorcard">
-                  <div class="card-body">
-                    <h4 class="card-title">Title</h4>
-                    <p class="card-text">Text</p>
+                <div class="card text-white CardContador col-3 mx-1" style="background-color:#DAA520;">
+                  <div class="card-body row">
+                    <div class="col-9">
+                      <h2 class="card-title"><?php ContarRegistros('art'); ?></h2>
+                      <p class="card-text">Artículos registrados</p>
+                    </div>
+                    <div class = "col-3">
+                      <h1><i class="bi bi-box"></i></h1>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="card-body row">
+
+              <div class="card text-white CardContador col-3 mx-1" style="background-color:#20B2AA;">
+                  <div class="card-body row">
+                    <div class="col-9">
+                      <h2 class="card-title"><?php ContarRegistros('cat'); ?></h2>
+                      <p class="card-text">Categorías registrados</p>
+                    </div>
+                    <div class = "col-3">
+                      <h1><i class="bi bi-columns-gap"></i></h1>
+                    </div>
+                  </div>
+              </div>
+
+                <div class="card text-white CardContador col-3 mx-1" style="background-color:#F08080;">
+                  <div class="card-body row">
+                    <div class="col-9">
+                      <h2 class="card-title"><?php ContarRegistros('mar'); ?></h2>
+                      <p class="card-text">Marcas registrados</p>
+                    </div>
+                    <div class = "col-3">
+                      <h1><i class="bi bi-tag"></i></h1>
+                    </div>
                   </div>
                 </div>
             </div>
+            
         </div>
     </div>
 <?php

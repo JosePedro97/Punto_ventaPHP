@@ -41,7 +41,7 @@
     justify-content: baseline;
 }
 
-/* CONTADORES */
-.Contadorcard{
-    
+.CardContador{
+    width: 32% !important ;
+    border: none;
 }

@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <?php
+        # URL_BASE
+        $url_base = "http://localhost/punto_venta/";
+    ?>
+
     <!-- Bootstrap CSS Libraries -->
         <!-- Bootstrap CSS v5.2.1 -->
         <link rel="stylesheet" href="<?php echo $url_base ?>libs/bootstrap/css/bootstrap.min.css">
@@ -31,34 +37,38 @@
             <ul id="navdiv2" class="nav bg-dark flex-column heightForsideNavbar">
                 <!-- brand name -->
                 <img src="<?php echo $url_base ?>resources/imgs/ico-store.png" alt="tienda-logo" width="20%" class="pt-2 mx-auto">
-                <a class="navbar-brand mx-auto textColorForNav" href="<?php echo $url_base ?>index.php">La Tiendita de la Esquina</a>
-        
+                <h5 class="mx-auto textColorForNav">La tiendita de la esquina</h5>
+
+                <!-- BOTON INICIO -->
+                <li class="nav-link MenuTextHover">
+                    <a class="nav-link textColorForNav" href="<?php echo $url_base ?>index.php"><i class="bi bi-house-door"></i> Inicio</a>
+                </li>
                 <!-- OPCIONES PARA VENTAS -->
                 <p class="mx-auto mb-0 mt-3 textColorForNav">Ventas</p>
                 <hr class="m-0 textColorForNav">
                 <li class="nav-item MenuTextHover">
-                    <a class="nav-link textColorForNav MenuTextHover" href="#"><i class="bi bi-bag-plus"></i> Nueva Venta</a>
+                    <a class="nav-link textColorForNav" href="#"><i class="bi bi-bag-plus"></i> Nueva Venta</a>
                 </li>
                 <li class="nav-item MenuTextHover">
-                    <a class="nav-link textColorForNav MenuTextHover" href="#"><i class="bi bi-list-task"></i> Listado de ventas</a>
+                    <a class="nav-link textColorForNav" href="#"><i class="bi bi-list-task"></i> Listado de ventas</a>
                 </li>
                 <!-- OPCIONES PARA ARTICULOS -->
                 <p class="mx-auto mb-0 mt-3 textColorForNav"> Articulos</p>
                 <hr class="m-0 textColorForNav">
                 <li class="nav-item MenuTextHover">
-                    <a class="nav-link textColorForNav MenuTextHover" href="<?php echo $url_base ?>modules/articulos/lista_articulos.php"><i class="bi bi-box"></i> Articulos</a>
+                    <a class="nav-link textColorForNav" href="<?php echo $url_base ?>modules/articulos/lista_articulos.php"><i class="bi bi-box"></i> Articulos</a>
                 </li>
                 <li class="nav-item MenuTextHover">
-                    <a class="nav-link textColorForNav MenuTextHover" href="<?php echo $url_base ?>modules/marcas/lista_marcas.php"><i class="bi bi-tag"></i> Marcas</a>
+                    <a class="nav-link textColorForNav" href="<?php echo $url_base ?>modules/marcas/lista_marcas.php"><i class="bi bi-tag"></i> Marcas</a>
                 </li>
                 <li class="nav-item MenuTextHover">
-                    <a class="nav-link textColorForNav MenuTextHover" href="<?php echo $url_base ?>modules/categorias/lista_categorias.php"><i class="bi bi-columns-gap"></i> Categorias</a>
+                    <a class="nav-link textColorForNav" href="<?php echo $url_base ?>modules/categorias/lista_categorias.php"><i class="bi bi-columns-gap"></i> Categorias</a>
                 </li>
                 <!-- OPCIONES PARA CLIENTE -->
                 <p class="mx-auto mb-0 mt-3 textColorForNav"> Clientes</p>
                 <hr class="m-0 textColorForNav">
                 <li class="nav-item MenuTextHover">
-                    <a class="nav-link textColorForNav MenuTextHover" href=""><i class="bi bi-people"></i> Clientes</a>
+                    <a class="nav-link textColorForNav" href=""><i class="bi bi-people"></i> Clientes</a>
                 </li>
             </ul>
         </div>

@@ -2,7 +2,7 @@
 # incluir conexion a la base de datos
     include_once("../../database/conexion.php");
 
-#listado de las marcas
+# listar informacion de la tabla
     function Obtenerlistado(){
         $ListarMarcas =  $_SERVER['CONEXION'] -> prepare("SELECT * FROM marcas");
         $ListarMarcas->execute();
@@ -10,7 +10,7 @@
         return($Listadomarcas);
     }
 
-# agregar categoria
+# agregar
    if($_POST && isset($_POST['accionFORM']) && $_POST['accionFORM'] == "agregar"){
         if (isset($_POST['nombremarca']) && !empty($_POST['nombremarca']) && $_POST['nombremarca'] != "") {
             # Insertar a la base de datos
@@ -27,7 +27,7 @@
         }
     }
 
-# Borrar y listar
+# Borrar y listar para editar
     if($_GET){
         switch ($_GET) {
             # Borrar

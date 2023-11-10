@@ -1,8 +1,8 @@
 <?php
-# incluir conexion a la base de datos
+# incluir base de datos
     include_once("../../database/conexion.php");
-
-#listado de las marcas
+    
+# listar informacion tabla
     function Obtenerlistado(){
         $ListaArticulos =  $_SERVER['CONEXION'] -> prepare("SELECT * FROM articulos AS art
         LEFT JOIN categorias AS cat ON art.cat_id = cat.cat_id
@@ -12,7 +12,7 @@
         return($Listadoarticulos);
     }
 
-# agregar articulo
+# agregar
    if($_POST && isset($_POST['accionFORM']) && $_POST['accionFORM'] == "agregar"){
         if (  isset($_POST['categoria']) && !empty($_POST['categoria']) && $_POST['categoria'] != "0" 
         &&    isset($_POST['marca']) && !empty($_POST['marca']) && $_POST['marca'] != "0" 
@@ -44,7 +44,7 @@
         }
     }
 
-# Borrar y listar
+# Borrar y listar para editar
     if($_GET){
         switch ($_GET) {
             # Borrar

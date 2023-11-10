@@ -1,8 +1,8 @@
 <?php
-# incluir conexion a la base de datos
+# incluir base de datos
     include_once("../../database/conexion.php");
 
-#listado de las categortias
+#listar informacion tabla
     function Obtenerlistado(){
         $ListarCategorias =  $_SERVER['CONEXION'] -> prepare("SELECT * FROM categorias");
         $ListarCategorias->execute();
@@ -10,7 +10,7 @@
         return($Listadocategorias);
     }
 
-# agregar categoria
+# agregar
    if($_POST && isset($_POST['accionFORM']) && $_POST['accionFORM'] == "agregar"){
         if (isset($_POST['nombrecategoria']) && !empty($_POST['nombrecategoria']) && $_POST['nombrecategoria'] != "") {
             # Insertar a la base de datos
@@ -27,7 +27,7 @@
         }
     }
 
-# Borrar y listar
+# Borrar y listar para editar
     if($_GET){
         switch ($_GET) {
             # Borrar
