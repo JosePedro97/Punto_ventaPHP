@@ -39,10 +39,10 @@
                 <img src="<?php echo $url_base ?>resources/imgs/ico-store.png" alt="tienda-logo" width="20%" class="pt-2 mx-auto">
                 <h5 class="mx-auto textColorForNav">La tiendita de la esquina</h5>
 
-                <!-- BOTON INICIO -->
-                <li class="nav-link MenuTextHover">
-                    <a class="nav-link textColorForNav" href="<?php echo $url_base ?>index.php"><i class="bi bi-house-door"></i> Inicio</a>
-                </li>
+                <!-- BOTON INICIO
+                    <li class="nav-link MenuTextHover">
+                        <a class="nav-link textColorForNav" href="index.php"><i class="bi bi-house-door"></i> Inicio</a>
+                    </li> -->
                 <!-- OPCIONES PARA VENTAS -->
                 <p class="mx-auto mb-0 mt-3 textColorForNav">Ventas</p>
                 <hr class="m-0 textColorForNav">
@@ -53,7 +53,7 @@
                     <a class="nav-link textColorForNav" href="#"><i class="bi bi-list-task"></i> Listado de ventas</a>
                 </li>
                 <!-- OPCIONES PARA ARTICULOS -->
-                <p class="mx-auto mb-0 mt-3 textColorForNav"> Articulos</p>
+                <p class="mx-auto mb-0 mt-3 textColorForNav">Articulos</p>
                 <hr class="m-0 textColorForNav">
                 <li class="nav-item MenuTextHover">
                     <a class="nav-link textColorForNav" href="<?php echo $url_base ?>modules/articulos/lista_articulos.php"><i class="bi bi-box"></i> Articulos</a>
@@ -65,10 +65,10 @@
                     <a class="nav-link textColorForNav" href="<?php echo $url_base ?>modules/categorias/lista_categorias.php"><i class="bi bi-columns-gap"></i> Categorias</a>
                 </li>
                 <!-- OPCIONES PARA CLIENTE -->
-                <p class="mx-auto mb-0 mt-3 textColorForNav"> Clientes</p>
+                <p class="mx-auto mb-0 mt-3 textColorForNav">Clientes</p>
                 <hr class="m-0 textColorForNav">
                 <li class="nav-item MenuTextHover">
-                    <a class="nav-link textColorForNav" href=""><i class="bi bi-people"></i> Clientes</a>
+                    <a class="nav-link textColorForNav" href="<?php echo $url_base ?>modules/clientes/lista_clientes.php"><i class="bi bi-people"></i> Clientes</a>
                 </li>
             </ul>
         </div>
